@@ -23,16 +23,7 @@ namespace HaikubotForms
 
             InitializeComponent();
         }
-        //private string LoadPeopleList()
-        //{
-        //    var firstl = SQLiteDataAccess.LoadFirstLine();
-        //    return firstl;
-        //}
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-            this.BackgroundImage = Properties.Resources._555;
 
-        }
         private void btnHaiku_Click(object sender, EventArgs e)
         {
             //string førstetext = haiku.CreateHaiku();
@@ -77,8 +68,53 @@ namespace HaikubotForms
             dataGridView3.DataSource = dt;
         }
 
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SQLiteConnection con = new SQLiteConnection(@"data source=C:\Users\Mathias\Desktop\PraktikProjekt\HaikubotForms-master\HaikubotForms\HaikuLines.db");
+            con.Open();
+            string query = "SELECT  ThirdHaikuLine FROM ThirdLine ORDER BY RANDOM() LIMIT 1; ";
+            SQLiteCommand cmd = new SQLiteCommand(query, con);
+            DataTable dt = new DataTable();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            adapter.Fill(dt);
+
+            //listView1.ToString = dt;
+
+        }
+
+        private void Samlet_Click(object sender, EventArgs e)
+        {
+            SQLiteConnection con = new SQLiteConnection(@"data source=C:\Users\Mathias\Desktop\PraktikProjekt\HaikubotForms-master\HaikubotForms\HaikuLines.db");
+            con.Open();
+            string query = "SELECT FirstHaikuLine FROM FirstLine ORDER BY RANDOM() LIMIT 1; ";
+            SQLiteCommand cmd = new SQLiteCommand(query, con);
+            DataTable dt1 = new DataTable();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
+            adapter.Fill(dt1);
+
+            dataGridView1.DataSource = dt1;
+
+            SQLiteConnection con2 = new SQLiteConnection(@"data source=C:\Users\Mathias\Desktop\PraktikProjekt\HaikubotForms-master\HaikubotForms\HaikuLines.db");
+            con2.Open();
+            string query2 = "SELECT SecondHaikuLine FROM SecondLine ORDER BY RANDOM() LIMIT 1; ";
+            SQLiteCommand cmd2 = new SQLiteCommand(query2, con2);
+            DataTable dt2 = new DataTable();
+            SQLiteDataAdapter adapter2 = new SQLiteDataAdapter(cmd2);
+            adapter2.Fill(dt2);
+
+            dataGridView2.DataSource = dt2;
+
+            SQLiteConnection con3 = new SQLiteConnection(@"data source=C:\Users\Mathias\Desktop\PraktikProjekt\HaikubotForms-master\HaikubotForms\HaikuLines.db");
+            con3.Open();
+            string query3 = "SELECT  ThirdHaikuLine FROM ThirdLine ORDER BY RANDOM() LIMIT 1; ";
+            SQLiteCommand cmd3 = new SQLiteCommand(query3, con3);
+            DataTable dt3 = new DataTable();
+            SQLiteDataAdapter adapter3 = new SQLiteDataAdapter(cmd3);
+            adapter3.Fill(dt3);
+
+            dataGridView3.DataSource = dt3;
 
         }
     }

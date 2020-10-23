@@ -36,6 +36,7 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Samlet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -89,12 +90,10 @@
             // 
             // dataGridView3
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(262, 249);
+            this.dataGridView3.Location = new System.Drawing.Point(262, 248);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(240, 55);
-            this.dataGridView3.TabIndex = 9;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            this.dataGridView3.Size = new System.Drawing.Size(240, 54);
+            this.dataGridView3.TabIndex = 11;
             // 
             // button2
             // 
@@ -120,13 +119,23 @@
             this.groupBox1.Size = new System.Drawing.Size(636, 320);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // Samlet
+            // 
+            this.Samlet.Location = new System.Drawing.Point(347, 366);
+            this.Samlet.Name = "Samlet";
+            this.Samlet.Size = new System.Drawing.Size(75, 23);
+            this.Samlet.TabIndex = 1;
+            this.Samlet.Text = "Generate";
+            this.Samlet.UseVisualStyleBackColor = true;
+            this.Samlet.Click += new System.EventHandler(this.Samlet_Click);
             // 
             // HaikubotUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Samlet);
             this.Controls.Add(this.groupBox1);
             this.Name = "HaikubotUI";
             this.Text = "Prototype HaikuBot";
@@ -149,6 +158,7 @@
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button Samlet;
     }
 }
 
